@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<html> 
+	<head>
+		<meta name="x-blackberry-defaultHoverEffect" content="false" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
+		
+		<link  rel="stylesheet" type="text/css" href="bbui-0.9.1.css"></link >
+		<link  rel="stylesheet" type="text/css" href="styles/master.css"></link >
+		
+		<script src="js/phonegap/cordova-1.8.0.js" type="text/javascript"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		
+		<script src="bbui-0.9.1.js" type="text/javascript"></script>
+		<script src="js/config.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+		<script src="js/sqlite.js" type="text/javascript"></script>
+		<script src="js/sounds.js" type="text/javascript"></script>
+		<script src="js/notification.js" type="text/javascript"></script>
+		<script src="js/server.js" type="text/javascript"></script>
+		<script src="js/utils.js" type="text/javascript"></script>
+		<script src="js/jscron.js" type="text/javascript"> </script>
+		<script src="js/updateSever.js" type="text/javascript"> </script>
+		<script src="js/settings.js" type="text/javascript"> </script>
+		
+		
+		<script type="text/javascript" charset="utf-8" src="js/phonegap/plugins/childbrowser.js"></script>
+		
+		<script type="text/javascript">
+			// You must call init on bbUI before any other code loads.  
+			// If you want default functionadivty simply don't pass any parameters.. bb.init();
+			
+			bb.init({
+					onscreenready: function(element, id) {
+									
+									if( id== 'home'){
+										var idrefresh = element.getElementById('idrefresh');
+										var idgritoguerra = element.getElementById('idgritoguerra');
+										
+										if(screen.width >= 480 || screen.height >= 480){
+											idrefresh.width = idgritoguerra.width = "45";
+											idrefresh.height	= idgritoguerra.height = "39";
+										}else{
+											idrefresh.width =idgritoguerra.width = "32";
+											idrefresh.height = idgritoguerra.height = "28";	
+										}
+										
+										idgritoguerra.setAttribute('onclick','startAudio("local:///sounds/'+team+'.mp3");'); 
+										idrefresh.setAttribute('onclick','updateGame();');
+									}
+									if( id== 'minute'){
+										
+										var idrefresh = element.getElementById('idrefresh');
+										var idgritoguerra = element.getElementById('idgritoguerra');
+										var idsonido = element.getElementById('idSoundEvent');
+										var idOnlyEvent = element.getElementById('idOnlyEvent');
+								
+										if(screen.width >= 480 || screen.height >= 480){
+											idrefresh.width = idgritoguerra.width = "45";
+											idrefresh.height	= idgritoguerra.height = "39";
+											idsonido.className = "onlySound-hires";
+											idOnlyEvent.className = "onlyEvent-hires"; 
+										}else{
+											idrefresh.width =idgritoguerra.width = "32";
+											idrefresh.height = idgritoguerra.height = "28";
+											idsonido.className = "onlySound-lowres";
+											idOnlyEvent.className = "onlyEvent-lowres"; 
+										}
+										
+										var strSound = "si";
+										if(!flagSoundEvent){
+											strSound = "no";										
+										}
+										idsonido.setAttribute("onmouseover","this.src='images/sonido_"+strSound+"_select.png'");
+										idsonido.setAttribute("onmouseout","this.src='images/sonido_"+strSound+".png'");
+										idsonido.src = "images/sonido_"+strSound+".png";
+										
+										var strEvent = "click";
+										if(!flagOnlyEvent){
+											strEvent = "normal";										
+										}
+										idOnlyEvent.setAttribute("onmouseover","this.src='images/style/commentbutton_"+strEvent+"_select.png'");
+										idOnlyEvent.setAttribute("onmouseout","this.src='images/style/commentbutton_"+strEvent+".png'");
+										idOnlyEvent.src = "images/style/commentbutton_"+strEvent+".png";
+									
+										idgritoguerra.setAttribute('onclick','startAudio("local:///sounds/'+team+'.mp3");'); 
+										idrefresh.setAttribute('onclick','updateMenuMinute();');
+										
+									}
+									if (id == 'configuration') {
+										var td = element.getElementById('select_id');
+										if(td!= null){
+											var stringBuilder; 
+											 stringBuilder  = '<select id="select_updateTimer" x-blackberry-focusable="true" onmouseover = "this.className = \'borderSelect\'" onmouseout="this.className = \'\'" >';
+											 var i = 1;   
+												while(i <= timerArray.length){
+													if( timerArray[i]  != updateTimer ){
+														if(timerArray[i] == 120000 )	
+														stringBuilder = stringBuilder+ '<option value="'+timerArray[i]+'">2 min</option> ';
+														else if(timerArray[i] == 300000 )
+														stringBuilder = stringBuilder+ '<option value="'+timerArray[i]+'">5 min</option> ';
+														else if(timerArray[i] == 1800000 )
+														stringBuilder = stringBuilder+ '<option value="'+timerArray[i]+'">10 min</option> ';
+														else if(timerArray[i] == 3600000 )
+														stringBuilder = stringBuilder+ '<option value="'+timerArray[i]+'">60 min</option> ';	
+													}else{
+														if(timerArray[i] == 120000 )	
+														stringBuilder = stringBuilder+ '<option value="'+timerArray[i]+'" selected="selected">2 min</option> ';
+														else if(timerArray[i] == 300000 )
+														stringBuilder = stringBuilder+ '<option value="'+timerArray[i]+'" selected="selected">5 min</option> ';
+														else if(timerArray[i] == 1800000 )
+														stringBuilder = stringBuilder+ '<option value="'+timerArray[i]+'" selected="selected">10 min</option> ';
+														else if(timerArray[i] == 3600000 )
+														stringBuilder = stringBuilder+ '<option value="'+timerArray[i]+'" selected="selected">60 min</option> ';
+													}
+													i++;
+												}
+											stringBuilder =  stringBuilder +'</select>	';
+											td.innerHTML = stringBuilder;
+										}
+										
+										var td = element.getElementById('td_team');
+										if(td!= null){
+											 var stringBuilder = ""; 
+											 stringBuilder  = '<select id="select_team" x-blackberry-focusable="true" onmouseover = "this.className = \'borderSelect\'" onmouseout="this.className = \'\'" >';
+											 var i = 1;
+												while(i < teamArray.length){
+													if(teamArray[i] != team){
+													stringBuilder = stringBuilder+ '<option value="'+teamArray[i]+'">'+teamArray[i]+'</option> ';
+													}else{
+													stringBuilder = stringBuilder+ '<option value="'+teamArray[i]+'" selected="selected">'+teamArray[i]+'</option> ';
+													}	
+													i++;
+												}
+												if(team == "Generico"){
+													stringBuilder = stringBuilder+ '<option value="Generico" selected="selected">No tiene Equipo</option> ';
+												}
+											stringBuilder =  stringBuilder +'</select>	';
+											td.innerHTML = stringBuilder;
+										} 
+										
+										
+									}
+									if (id == 'detailNews') {
+										var bodydetail = element.getElementById('body-detail');
+										if(bodydetail!= null){
+											if(screen.width >= 480 || screen.height >= 480){
+												bodydetail.setAttribute('class','body-detail-hires');
+											}else{
+												bodydetail.setAttribute('class','body-detail-lower');
+											}
+										}
+									}
+									
+									
+									},
+					// Fires "after" stydivng is appdived and "after" the screen is inserted in the DOM
+					ondomready: function(element, id) {
+										if(id == "home"){
+											var stringDate;
+											var date = new Date();
+											getNewHighlight(false); 
+											getGames(date);
+										}
+										if(id == "minute"){
+											cantMinuto = 7;
+											getStatusInnings(currentSlug);
+											//getMinuteByMinute(currentSlug,cantMinuto,flagEvent);
+										}
+
+										if(id == 'news'){
+											getNews(currentSlug,1);
+										}										
+									
+										if(id == 'detailNews'){
+											getNewDetail(currentSlug);
+										}
+										if(id == "tablaPosition"){
+											tablaPosition(roundRegular);
+										}
+										
+										if(id == "resultado"){
+											var date = new Date();
+											getResultados(date);
+										}
+										
+										if(id == "calendar"){
+											var stringDate;
+											var date = new Date();
+											var initBeisbol = new Date(2012,9,11,00,00,00);
+											
+											if(date < initBeisbol ){
+												date = initBeisbol;
+											}
+											getCalendar(date,1);
+										}
+										if (id == 'configuration') {
+											getSettings();
+										}		
+										
+										
+									}
+					});
+				
+		</script>
+	</head>
+	<body onload="init();" >	
+	</body>
+</html>
