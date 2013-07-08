@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<div data-bb-type="screen" >
+	<style type="text/css">
+				body, html {
+					background-color: White;
+				}
+		</style>
+			<div style="position:relative" >
+				<img src="images/style/head.jpg" width="100%"  alt="" />
+			</div>
+			<div style="background-image: url('images/style/background_boxscore_td.png'); text-align: center; padding: 15px;" >
+				<b style="font-family: Freshman; color: white;">CONFIGURACION</b>
+			</div>
+	
+			<table width="100%">		
+				<tr>
+					<td ><div >Activar alerta tactil</div></td>
+					<td align="right"><input x-blackberry-focusable="true" onmouseover = "this.className = \'borderSelect\'" onmouseout="this.className = \'\'"  type="checkbox" name="mostrarVibrate" id="useVibrate" onClick="saveNotificationsInformation();"/></td>
+				</tr>
+				<tr >
+					<td ><div >Activar alerta sonora</div></td>
+					<td align="right" ><input x-blackberry-focusable="true" onmouseover = "this.className = \'borderSelect\'" onmouseout="this.className = \'\'" type="checkbox" name="mostrarSound" id="useSound" onClick="saveNotificationsInformation();"/></td>
+				</tr>
+				 <tr >
+					<td ><div >Buscar nuevo contenido cada: </div></td>
+					<td align="right" id ="select_id" >
+						 <!--  <select id="select_updateTimer" size="5">
+				            <option value="180000" >3 minutos</option>
+				            <option value="300000">5 minutos</option>
+				            <option value="600000">10 minutos</option>
+				            <option value="1800000">30 minutos</option>
+				            <option value="3600000">60 minutos</option>
+						</select> 		 -->			
+					</td>
+				</tr>
+				
+				<tr >
+					<td ><div >Cambiar de equipo: </div></td>
+					<td align="right" id= "td_team" >
+						 <!-- <select id="select_team" size="7">
+				            <option value="Generico" selected="selected">No tengo Equipo</option>
+				            <option value="Aguilas">Aguilas</option>
+				            <option value="Bravos">Bravos</option>
+				            <option value="Caribes">Caribes</option>
+				            <option value="Cardenales">Cardenales</option>
+				            <option value="Navegantes">Navegantes</option>
+				            <option value="Tiburones">Tiburones</option>
+				            <option value="Tigres">Tigres</option>
+				            
+						</select>		 -->			
+					</td>
+				</tr>
+				 
+				<tr>
+					<td align="center" colspan="2"  >
+						<br/>
+						<img x-blackberry-focusable="true" onmouseover = "this.src = 'images/ico_save_select.png'" onmouseout="this.src = 'images/ico_save.png'" onclick="updateNotifications();" alt="" src="images/ico_save.png">
+						<br/>
+					</td>
+				</tr>
+				
+			</table>
+			
+			<div data-bb-type="menu">
+        <div data-bb-type="menu-item" data-bb-selected="true"  onclick="updateNotifications();">Guardar</div>
+        <div data-bb-type="menu-separator"></div>
+		<div data-bb-type="menu-item" onclick="nextActivity('','home');"   >Minuto a minuto</div>
+        <div data-bb-type="menu-item" onclick="nextActivity('noticias','news');">Noticias</div>
+        <div data-bb-type="menu-item" onclick="nextActivity('','tablaPosition');">Tabla de posiciones</div>
+		<div data-bb-type="menu-item" onclick="nextActivity('','resultado');">Resultados</div>
+		<div data-bb-type="menu-item" onclick="nextActivity('','calendar');">Calendario</div>
+		<div data-bb-type="menu-item" onclick="nextActivity('','about');">Acerca de...</div>
+		<div data-bb-type="menu-item" onclick="exitApp();">Salir</div>
+    </div>
+</div>
+	
