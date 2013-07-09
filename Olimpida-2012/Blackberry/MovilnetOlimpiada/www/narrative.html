@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<div data-bb-type="screen" >
+	
+	<style type="text/css">
+        body, html {
+            background-color: White;
+        }
+    </style>
+	
+	
+		<table width="100%"  cellpadding="0" cellspacing="0" >
+			<tr>
+				<td align="left" id="title" ><img id="logo" src="images/header.jpg"  /></td>
+				<td align="right"><img x-blackberry-focusable="true" onmouseover = "this.src = 'images/ico_menu_select.png'" onmouseout="this.src = 'images/ico_menu.png'"  style="margin-right: 2px;"  id="cambiarBtn" onclick="setCurrentSlug('1','mainMenu');"   src="images/ico_menu.png" /></td>
+			</tr>
+		</table>
+	
+	
+	<div  data-bb-type="image-list">
+		<div data-bb-type="header" data-bb-justify="left">Noticia Destacada</div>
+	</div>
+	<div id="newHighlight" style="background-color: black;" ></div>
+	<div id= "load-highlight" class="center"><img id="loading" alt="Cargando" src="images/loading1.gif" />Cargando....</div>
+	<div data-bb-type="image-list">
+		<div data-bb-type="header"  data-bb-justify="left">Momento Ol&iacute;mpico</div>	
+	</div>
+	<div id= "load-narrative" class="center"><img id="loading" alt="Cargando" src="images/loading1.gif" />Cargando....</div>
+	<div id="minutoaminutoId" data-bb-type="minuto-minuto">   </div>
+	<div>&nbsp;</div>
+	<div x-blackberry-focusable="true" id="vermas"  onmouseover = "this.className = 'bb-see-more-hover'" onmouseout="this.className = 'bb-see-more'" class= "bb-see-more"   onclick="seeMore()"  align="center" ></div>
+	
+	<div data-bb-type="menu">
+        <div data-bb-type="menu-item" data-bb-selected="true"  onclick="updateMenuMinute();">Actualizar</div>
+		<div data-bb-type="menu-item" data-bb-selected="true"  onclick="selectVen();">Venezolanos/Todos</div>
+        <div data-bb-type="menu-separator"></div>
+        <div data-bb-type="menu-item" onclick="setCurrentSlug('noticias','news');">Noticias</div>
+        <div data-bb-type="menu-item" onclick="setCurrentSlug('1','calendar');">Calendario</div>
+        <div data-bb-type="menu-item" onclick="setCurrentSlug('generacion-dorada','generationGold');">Generaci&oacute;n Dorada</div>
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('deportes-olimpicos','discipline');">Disciplinas</div>
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('1','medal');">Medallero</div>
+		<!-- <div data-bb-type="menu-item" onclick="sharerecom();">Recomienda la aplicaci&oacute;n</div> -->
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('','configuration');">Configuraci&oacute;n</div>
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('','about');">Acerca de...</div>
+		<div data-bb-type="menu-item" onclick="exitApp();">Salir</div>
+    </div>
+	
+</div>
+
+
+
+
+
+	

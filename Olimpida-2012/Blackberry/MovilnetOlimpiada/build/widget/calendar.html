@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<div data-bb-type="screen" >
+	
+	
+	<style type="text/css">
+        body, html {
+            background-color: White;
+        }
+    </style>
+	
+	<table width="100%"  cellpadding="0" cellspacing="0" >
+		<tr>
+			<td align="left" id="title" ><img id="logo" src="images/header.jpg"  /></td>
+			<td align="right"><img x-blackberry-focusable="true" onmouseover = "this.src = 'images/ico_menu_select.png'" onmouseout="this.src = 'images/ico_menu.png'"  style="margin-right: 2px;"  id="cambiarBtn" onclick="setCurrentSlug('1','mainMenu');"   src="images/ico_menu.png" /></td>
+		</tr>
+	</table>
+	<div data-bb-type="image-list">
+		<div data-bb-type="header" data-bb-justify="left">Calendario</div>
+	</div>
+	
+	<div id= "pagination-day"></div>
+	<div id= "filter-select" align="center">
+	Selecciona una disciplina:
+	<select x-blackberry-focusable="true"  id="iddisc"  onchange="selectDiscipline();" name="iddisc">
+		<option value=""  selected="selected">Todas las disciplinas</option>
+		    <option value="7">Atletismo</option>
+		    <option value="9">B&aacute;squetbol</option>
+		    <option value="8">Badminton</option>
+		    <option value="31">Balonmano</option>
+		    <option value="10">BMX</option>
+		    <option value="11">Boxeo</option>
+		    <option value="12">Canoa/Kayak</option>
+		    <option value="13">Ciclismo en carretera</option>
+		    <option value="14">Ciclismo en Monta&ntilde;a</option>
+		    <option value="15">Ciclismo en pista</option>
+		    <option value="16">Clavados</option>
+		    <option value="17">Ecuestre</option>
+		    <option value="18">Esgrima</option>
+		    <option value="19">F&uacute;tbol</option>
+		    <option value="20">Gimnasia Art&iacute;stica</option>
+		    <option value="21">Gimnasia R&iacute;tmica</option>
+		    <option value="22">Hockey sobre c&eacute;sped</option>
+		    <option value="23">Judo</option>
+		    <option value="24">Levantamiento de Pesas</option>
+		    <option value="25">Lucha</option>
+		    <option value="26">Nado sincronizado</option>
+		    <option value="27">Nataci&oacute;n</option>
+		    <option value="28">Pentatl&oacute;n moderno</option>
+		    <option value="29">Remo</option>
+		    <option value="30">Taekwondo</option>
+		    <option value="32">Tenis</option>
+		    <option value="33">Tenis de mesa</option>
+		    <option value="34">Tiro al Blanco</option>
+		    <option value="35">Tiro con Arco</option>
+		    <option value="36">Trampol&iacute;n</option>
+		    <option value="37">Triatl&oacute;n</option>
+		    <option value="38">Vela</option>
+		    <option value="39">V&oacute;leibol</option>
+		    <option value="40">V&oacute;leibol de Playa</option>
+		    <option value="41">Waterpolo</option>
+		</select>
+	
+	</div>
+	<div id= "filter-checkbox" align="center">
+		Participaci&oacute;n Venezolana: 
+		<input x-blackberry-focusable="true" type="checkbox" name="partVen" id="partVen" onClick="selectOnlyVen();"/> 
+	</div>
+	<div id= "load-calendar" class="center"><img id="loading" alt="Cargando" src="images/loading1.gif" />Cargando....</div>
+	<div id= "pagination-calendar"></div>
+	<div id="calendarioListId"  data-bb-type="calendar" ></div>
+	
+	<div data-bb-type="menu">
+    <div data-bb-type="menu-item" onclick="setCurrentSlug('','narrative');" >Momento Ol&iacute;mpico</div>
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('noticias','news');">Noticias</div>
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('generacion-dorada','generationGold');">Generaci&oacute;n Dorada</div>
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('deportes-olimpicos','discipline');">Disciplinas</div>
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('1','medal');">Medallero</div>
+		<!-- <div data-bb-type="menu-item" onclick="sharerecom();">Recomienda la aplicaci&oacute;n</div> -->
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('','configuration');">Configuraci&oacute;n</div>
+		<div data-bb-type="menu-item" onclick="setCurrentSlug('','about');">Acerca de...</div>
+		<div data-bb-type="menu-item" onclick="exitApp();">Salir</div>
+  </div>
+	
+	
+</div>

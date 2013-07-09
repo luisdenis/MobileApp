@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<html> 
+	<head>
+		<meta name="x-blackberry-defaultHoverEffect" content="false" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
+		
+		<link  rel="stylesheet" type="text/css" href="bbui-0.9.1.css"></link >
+		<link  rel="stylesheet" type="text/css" href="styles/master.css"></link >
+		
+		<script src="scripts/phonegap/cordova-1.8.0.js" type="text/javascript"></script>
+		
+		<script src="bbui-0.9.1.js" type="text/javascript"></script>
+		<script src="scripts/config.js" type="text/javascript"></script>
+		<script src="scripts/newsMenu.js" type="text/javascript"> </script>
+		<script src="scripts/sqlite.js" type="text/javascript"> </script>
+		<script src="scripts/main.js" type="text/javascript"> </script>
+		<script src="scripts/settings.js" type="text/javascript"> </script>
+		<script src="scripts/jquery.js" type="text/javascript"> </script>
+		<script src="scripts/server.js" type="text/javascript"> </script>
+		<script src="scripts/utils.js" type="text/javascript"> </script>
+		<script src="scripts/sounds.js" type="text/javascript"> </script>
+		<script src="scripts/notification.js" type="text/javascript"> </script>
+		
+		<script type="text/javascript" charset="utf-8" src="scripts/phonegap/plugins/childbrowser.js"></script>
+		
+		<script type="text/javascript">
+			// You must call init on bbUI before any other code loads.  
+			// If you want default functionadivty simply don't pass any parameters.. bb.init();
+			
+			bb.init({
+					onscreenready: function(element, id) {
+					
+									var title = element.getElementById('title');
+									if(title!= null){
+										
+										if(screen.width >= 480 || screen.height >= 480){
+											if(element.getElementById('cambiarBtn') != null){
+												element.getElementById('cambiarBtn').width = 90;
+												element.getElementById('cambiarBtn').height = 33;
+											}
+											title.setAttribute('class','title-hires');
+										}else{
+											element.getElementById('cambiarBtn').width = 55;
+											element.getElementById('cambiarBtn').height = 20;
+											title.setAttribute('class','title-lower');
+										}
+									}
+									var titleMenu = element.getElementById('title-menu');
+									if(titleMenu!= null){
+										titleMenu.width = window.innerWidth;
+									}
+									
+									
+									if (id == 'detailNews') {
+										var bodydetail = element.getElementById('body-detail');
+										if(bodydetail!= null){
+											if(screen.width >= 480 || screen.height >= 480){
+												bodydetail.setAttribute('class','body-detail-hires');
+											}else{
+												bodydetail.setAttribute('class','body-detail-lower');
+											}
+										}
+									}
+					
+										if (id == 'configuration') {
+											var td = element.getElementById('select_id');
+											if(td!= null){
+												var stringBuilder; 
+												 stringBuilder  = '<select id="select_updateTimer" >';
+												 var i = 1;
+														if("300000" == updateTimer ){
+														stringBuilder = stringBuilder+ '<option value="300000" selected="selected">5 min</option> ';
+														}else if("180000" == updateTimer ){
+														stringBuilder = stringBuilder+ '<option value="180000" selected="selected">3 min</option> ';
+														}else if("1800000" == updateTimer ){
+														stringBuilder = stringBuilder+ '<option value="1800000" selected="selected">30 min</option> ';
+														}else if("600000" == updateTimer ){
+														stringBuilder = stringBuilder+ '<option value="600000" selected="selected">10 min</option> ';
+														}else if("3600000" == updateTimer ){
+														stringBuilder = stringBuilder+ '<option value="3600000" selected="selected">60 min</option> ';
+														}												 
+													while(i <= 5){
+														if((i == 1) && updateTimer != "180000" ){ stringBuilder = stringBuilder+ '<option value="180000" >3 min</option> '; }
+														else if((i==2) && updateTimer != "300000") { stringBuilder = stringBuilder+ '<option value="300000">5 min</option> '; }
+														else if((i==3) && updateTimer != "600000") { stringBuilder = stringBuilder+ '<option value="600000" >10 min</option> '; }
+														else if((i==4) && updateTimer != "1800000") { stringBuilder = stringBuilder+ '<option value="1800000" >30 min</option> '; }
+														else if((i==5) && updateTimer != "3600000") { stringBuilder = stringBuilder+ '<option value="3600000" >60 min</option> '; }
+														i++;
+													}
+												stringBuilder =  stringBuilder +'</select>	';
+												td.innerHTML = stringBuilder;
+											}
+										}
+										
+									},
+					// Fires "after" stydivng is appdived and "after" the screen is inserted in the DOM
+					ondomready: function(element, id) {
+										if (id == 'configuration'){
+											getSettings();
+										}
+										if (id == 'narrative') {
+											getNewHighlight(false);
+											cantMinuto = 10;
+											getMinuteByMinute(cantMinuto,"all");
+										}
+										if(id == 'detailNews'){
+											getNewDetail(currentSlug);
+										}
+										if(id == 'news'){
+											getNews(currentSlug,1);
+										
+										}
+										if(id == 'generationGold'){
+											getGenerationGold(currentSlug,1);
+										}
+										if(id == 'detailGeneration'){
+											getNewDetail(currentSlug);
+										}
+										if(id == 'discipline'){
+											getDiscipline(currentSlug,1);
+										}
+										if(id == 'detailDiscipline'){
+											getNewDetail(currentSlug);
+										}
+										if(id == 'medal'){
+											getMedal(currentSlug);
+										}
+										
+										if(id == 'calendar'){
+											var stringDate;
+											var date = new Date();
+											var initOlimpiada = new Date(2012,6,27,00,00,00);
+											//validation init olimpiada
+											flagDisc = "";
+											flagVenCalen = true;
+											if(date < initOlimpiada ){
+												date = initOlimpiada;
+											}
+											
+											getCalendar(date,1);
+										}
+										
+									}
+					});
+				
+		</script>
+	</head>
+	<body onload="init();" >	
+	</body>
+</html>

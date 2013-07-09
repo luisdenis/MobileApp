@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<html> 
+	<head>
+		<meta name="x-blackberry-defaultHoverEffect" content="false" />
+		<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
+		<link  rel="stylesheet" type="text/css" href="bbui-0.9.1.css"></link >
+		<link  rel="stylesheet" type="text/css" href="style/master.css"></link >
+		
+		<script type="text/javascript" src="bbui-0.9.1.js"></script>
+		<script type="text/javascript" src="scripts/phonegap/cordova-1.8.0.js"></script>
+		<script type="text/javascript" src="scripts/newsMenu.js" > </script>
+		<script type="text/javascript" src="scripts/main.js" > </script>
+		<script type="text/javascript" src="scripts/config.js" > </script>
+		<script type="text/javascript" src="scripts/utils.js" > </script>
+		<script type="text/javascript" src="scripts/sqlite.js" > </script>
+		<script type="text/javascript" src="scripts/settings.js" > </script>
+		<script type="text/javascript" src="scripts/server.js" > </script>
+		
+		<script type="text/javascript" src="scripts/notification.js" > </script>
+		<script type="text/javascript" src="scripts/sounds.js" > </script>
+		<script type="text/javascript" src="scripts/networkcheck.js" > </script>
+		
+		<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8" src="scripts/phonegap/plugins/statusbarnotification.js"></script>
+		<script type="text/javascript" charset="utf-8" src="scripts/phonegap/plugins/share.js"></script>
+		<script type="text/javascript" charset="utf-8" src="scripts/phonegap/plugins/childbrowser.js"></script>
+		
+		<script type="text/javascript">
+			// You must call init on bbUI before any other code loads.  
+			// If you want default functionadivty simply don't pass any parameters.. bb.init();
+			bb.init({
+					onscreenready: function(element, id) {
+									
+									var title = element.getElementById('title');
+									if(title!= null){
+										
+										if(screen.width >= 480 || screen.height >= 480){
+											if(element.getElementById('cambiarBtn') != null){
+												element.getElementById('cambiarBtn').width = 110;
+												element.getElementById('cambiarBtn').height = 40;
+											}
+											title.setAttribute('class','title-hires');
+										}else{
+											if(element.getElementById('cambiarBtn') != null){
+												element.getElementById('cambiarBtn').width = 75;
+												element.getElementById('cambiarBtn').height = 27;
+											}
+											title.setAttribute('class','title-lower');
+										}
+									}
+									
+									var titleMenu = element.getElementById('titleMenu');
+									if(titleMenu!= null){
+										if(screen.width >= 480 || screen.height >= 480){
+											titleMenu.setAttribute('class','titleMenu-hires');
+										} else {
+											titleMenu.setAttribute('class','titleMenu-lower');
+										}
+									}
+									
+									
+									if (id == 'detailNews') {
+										var bodydetail = element.getElementById('body-detail');
+										if(bodydetail!= null){
+											if(screen.width >= 480 || screen.height >= 480){
+												bodydetail.setAttribute('class','body-detail-hires');
+											}else{
+												bodydetail.setAttribute('class','body-detail-lower');
+											}
+										}
+									}
+									
+									if (id == 'configuration') {
+										var td = element.getElementById('select_id');
+										if(td!= null){
+											var stringBuilder; 
+											 stringBuilder  = '<select id="select_updateTimer" >';
+											 var i = 1;
+												while(i <= 10){
+													if(i != updateTimer ){
+													stringBuilder = stringBuilder+ '<option value="'+i+'">'+i+' min</option> ';
+													}else{
+													stringBuilder = stringBuilder+ '<option value="'+i+'" selected="selected">'+i+' min</option> ';
+													}
+													if(i != 5) i = i+2;
+													else i = i + 5;
+												}
+											stringBuilder =  stringBuilder +'</select>	';
+											td.innerHTML = stringBuilder;
+										}
+									}
+									},
+					
+					ondomready: function(element, id) {
+										
+										if (id == 'configuration') {
+											getSettings();
+										}
+										
+										if (id == 'narrative') {
+											
+											getNewHighlight(false);
+											cantMinuto = 10;
+											getMinuteByMinute(cantMinuto,"all");
+										}
+										if(id == 'detailNews'){
+											getNewDetail(currentSlug);
+										}
+										if(id == 'news'){
+											getNews(currentSlug,1);
+										}
+										if(id == 'generationGold'){
+											getGenerationGold(currentSlug,1);
+										}
+										if(id == 'detailGeneration'){
+											getNewDetail(currentSlug);
+										}
+										if(id == 'discipline'){
+											getDiscipline(currentSlug,1);
+										}
+										if(id == 'detailDiscipline'){
+											getNewDetail(currentSlug);
+										}
+										if(id == 'medal'){
+											getMedal(currentSlug);
+										}
+										if(id == 'calendar'){
+								
+											var stringDate;
+											var date = new Date();
+											var initOlimpiada = new Date(2012,6,27,00,00,00);
+											//validation init olimpiada
+											flagDisc = "";
+											flagVenCalen = true;
+											if(date < initOlimpiada ){
+												date = initOlimpiada;
+											}
+											
+											getCalendar(date,1);
+										}
+									}
+					});
+			
+		</script>
+	</head>
+	<body onload="init();">
+		<div id="desktopContent" align="center">
+	  		<img id="loading" alt="Cargando" src="images/loading1.gif">
+		  	<br/>
+		  	Cargando....
+		</div>	
+	</body>
+</html>

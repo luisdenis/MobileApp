@@ -1,0 +1,12 @@
+<loader version="1.0" >
+<application id="VenezuelaOlimpica">
+<name>Venezuela Olimpica</name>
+<description>Venezuela Olimpica Movilnet</description>
+<version>1.1.0.4</version>
+<vendor>Movida Movil</vendor>
+<fileset Java="1.45">
+<directory></directory>
+<files>VenezuelaOlimpica.cod</files>
+</fileset>
+</application>
+</loader>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<div data-bb-type="screen" >
+	<style type="text/css">
+				body, html {
+					background-color: White;
+				}
+		</style>
+		
+		<table width="100%" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td align="left" id="title"><img id="logo" src="images/header.jpg"  /></td>
+			<td align="right"><img style="margin-right: 5px;"  id="cambiarBtn" onclick="nextActivity('', 'mainMenu');" src="images/ico_menu.png" /></td>
+		</tr>
+		</table>
+
+	<div data-bb-type="round-panel"> 
+		<div data-bb-type="panel-header">Configuraci&oacute;n</div>
+			<table class="bb-bb10-label-control-rows">
+							
+				<tr>
+					<td ><div data-bb-type="label">Activar alerta tactil</div></td>
+					<td align="right"><input type="checkbox" name="mostrarVibrate" id="useVibrate" onClick="saveNotificationsInformation();"/></td>
+				</tr>
+				<tr >
+					<td ><div data-bb-type="label">Activar alerta sonora</div></td>
+					<td align="right" ><input type="checkbox" name="mostrarSound" id="useSound" onClick="saveNotificationsInformation();"/></td>
+				</tr>
+				<tr >
+					<td ><div data-bb-type="label">Buscar nuevo contenido cada: </div></td>
+					<td align="right" >
+						 <select id="select_updateTimer" size="3">
+				            <option value="180000" selected="selected">3 minutos</option>
+				            <option value="300000">5 minutos</option>
+				            <option value="600000">10 minutos</option>
+				            <option value="1800000">30 minutos</option>
+				            <option value="3600000">60 minutos</option>
+						</select>					
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"  >
+						<br/>
+						<input type="image" id="Save" onclick="updateNotifications();"  src="images/ico_save.png" />
+						<br/>
+					</td>
+				</tr>
+				
+			</table>
+	</div>	
+
+</div>

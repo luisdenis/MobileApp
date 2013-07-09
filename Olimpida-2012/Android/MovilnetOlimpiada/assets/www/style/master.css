@@ -1,0 +1,378 @@
+
+#contenedor {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+}	
+#cabecera {
+width: 100%;
+height: auto;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:18px;
+background-color:#CCCCCC;
+text-align: center;
+overflow: hidden;
+}	
+#cuerpo {
+width: 100%;
+height: 83%;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:18px;
+background-image:url('images/background.png');
+background-attachment: scroll;
+padding: 3px;
+text-align: center;
+overflow: auto;
+}	
+#pie { 
+position: absolute;
+left: 0px;
+bottom: 0px;
+width: 100%;
+height: auto;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+background-color:#CC0000;
+color:#FFFFFF;
+padding: 3px;
+text-align: center;
+overflow: hidden;
+}
+#footer { 
+position: absolute;
+left: 0px;
+bottom: 38px;
+width: 100%;
+height: auto;
+background: green;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+padding: 3px;
+text-align: center;
+overflow: hidden;
+}
+
+
+div.tabla
+{
+	clear: none;
+	overflow:hidden;
+}
+
+div.fila
+{
+	clear: both;
+}
+
+div.col_titulo
+{
+	float: left;
+	padding: 0px;
+	background: #F0E0A0;
+	border-color: #F0E0A0;
+	border-style: solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+div.col
+{
+	float: left;
+	padding: 0px;
+	border-color: #F0E0A0;
+	border-style: solid;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+	overflow:hidden;
+	
+}
+		
+		
+body, html {
+	background-color: White;
+}
+
+.centrar {
+	background-color: #FF9;
+	overflow: hidden;
+	position: absolute;
+	height: 200px;
+	width: 300px;
+	left: 50%;
+	top: 50%;
+	margin-top: -100px;
+	margin-left: -150px;
+}
+
+.cambiarBtn:hover{
+	background-color:#32a3d9;
+	color:#fff;
+}
+
+#imageRight {
+	/*float:left;*/
+	
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+	
+	border-style:solid;
+	border-color:#FF6600;
+	border-width:8px;
+	 
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	
+}
+
+
+/*
+TABLA PARA MOSTRAR EL MEDALLERO ALTA RESOLUCION
+*/
+		
+.customers-hires
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+width:100%;
+border-collapse:collapse;
+}
+.customers-hires td 
+{
+font-size:17px;
+border:1px solid #98bf21;
+padding:3px 7px 2px 7px;
+}
+
+.customers-hires th 
+{
+font-size:17px;
+border:1px solid #98bf21;
+padding:3px 7px 2px 7px;
+}
+.customers-hires th 
+{
+font-size:17px;
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#A7C942;
+color:#ffffff;
+}
+.customers-hires tr.alt td 
+{
+color:#000000;
+background-color:#EAF2D3;
+}
+
+
+.customers-hires tr.venezuela td 
+{
+color:#000000;
+background-color:#ffffff;
+border:1px solid #000000;
+}
+
+.customers-hires tr.venezuela th
+{
+color:#ffffff;
+background-color:#9A3C3C;
+border:1px solid #000000;
+}
+
+/*
+FIN
+*/
+
+
+
+/*
+TABLA PARA MOSTRAR EL MEDALLERO BAJA RESOLUCION
+*/
+
+.customers-lowres
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+width:100%;
+border-collapse:collapse;
+}
+.customers-lowres td 
+{
+font-size:8px;
+border:1px solid #98bf21;
+padding:3px 7px 2px 7px;
+}
+
+.customers-lowres th 
+{
+font-size:6px;
+text-align:left;
+padding-top:6px;
+padding-bottom:4px;
+border:1px solid #98bf21;
+padding:3px 7px 2px 7px;
+background-color:#A7C942;
+color:#ffffff;
+}
+
+.customers-lowres tr.alt td 
+{
+color:#000000;
+background-color:#EAF2D3;
+}
+
+.customers-lowres tr.venezuela td 
+{
+color:#000000;
+background-color:#ffffff;
+border:1px solid #000000;
+}
+
+.customers-lowres tr.venezuela th
+{
+color:#ffffff;
+background-color:#9A3C3C;
+border:1px solid #000000;
+}
+
+/*
+FIN
+*/
+/*
+TITLE
+*/
+.title-lower
+{
+	color: white;
+	font-size: small;
+}
+
+.title-lower img
+{
+	vertical-align: middle;
+	width: 180px;
+	height: 46px;
+}
+
+
+.title-hires
+{
+	color: white;
+	font-size: x-large;
+	
+}
+.title-hires img
+{
+	vertical-align: middle;
+	width: 310px;
+	height: 80px;
+}
+
+/* titleMenu */
+
+.titleMenu-lower img
+{
+	vertical-align: middle;
+	width: 230px;
+	height: 59px;
+}
+
+.titleMenu-hires img
+{
+	vertical-align: middle;
+	width: 370px;
+	height: 96px;
+}
+
+
+
+.medalcounter-hires img
+{
+	vertical-align: middle;
+	width: 20px;
+	height: 20px;
+}
+
+.medalcounter-lowres img
+{
+	vertical-align: middle;
+	width: 10px;
+	height: 10px;
+}
+
+.center{
+	text-align: center;
+}
+
+.aclick{
+	color : blue;
+}
+
+.aclick-movilnet{
+	color : #FF6600;
+}
+
+.aclick-hover{
+	color : red;
+}
+
+.title-images-hires 
+{
+	width: 25px;
+	height: 25px;
+}
+
+
+.title-images-lowres 
+{
+	width: 15px;
+	height: 15px;
+}
+
+
+#body-detail {
+	width: 95%;
+	height: auto;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:18px;
+	margin-left: auto;
+  margin-right: auto;
+}	
+
+
+.body-detail-hires {
+	font-size:18px;
+}	
+
+.body-detail-lowres {
+	font-size:12px;
+}	
+
+
+#textoNegro {
+	width: 90%;
+	height: auto;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:black;
+	text-align: left;
+	overflow: hidden;
+	padding-bottom: 10px;
+	margin-left: auto;
+  margin-right: auto;
+}
+
+#flagVen {
+	padding-left: 8px;
+	padding-right: 4px;
+}
+
+#updateGreen {
+	padding-left: 4px;
+	padding-right: 8px;
+}
