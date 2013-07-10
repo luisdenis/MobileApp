@@ -2,7 +2,6 @@ package com.example.venentusmano;
 
 import org.apache.cordova.DroidGap;
 
-import com.m2as.movilnet.beisbol.informativa.R;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -13,7 +12,7 @@ public class MainActivity extends DroidGap {
 	  @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
-	        super.setIntegerProperty("splashscreen", R.drawable.logo_promo);
+	        super.setIntegerProperty("splashscreen", R.drawable.ic_launcher);
 	        super.loadUrl("file:///android_asset/www/index.html",10000000);
 	    }
 
